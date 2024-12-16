@@ -1,0 +1,52 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>practica10</title>
+  <style>
+    #video-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    video {
+      width: 100%;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    .controls button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <script>
+function describeJob(jobTitle, companyName) {
+  console.log("Меня зовут " + this.name + ", я работаю " + jobTitle + " в " + companyName);
+}
+
+const person = { name: "Олег" };
+describeJob.call(person, "разработчиком", "Google");
+function showInfo(city, country) {
+  console.log("Я живу в городе " + city + ", страна " + country);
+}
+
+const userInfo = { city: "Бишкек", country: "Кыргызстан" };
+showInfo.apply(null, ["Бишкек", "Кыргызстан"]);
+const mathOperations = {
+  multiply(a, b) {
+    return a * b;
+  }
+};
+
+const multiplyByTwo = mathOperations.multiply.bind(null, 2);
+console.log(multiplyByTwo(5)); 
+
+  </script>
+</body>
+</html>
